@@ -156,16 +156,18 @@
                 Recent advancements in speech-to-speech dialogue systems leverage LLMs for multimodal interactions, yet they remain hindered by fine-tuning requirements, high computational overhead, and text-speech misalignment. Existing speech-enabled LLMs often degrade conversational quality by modifying the LLM, thereby compromising its linguistic capabilities. In contrast, we propose LLMVoX, a lightweight 30M-parameter, LLM-agnostic, autoregressive streaming TTS system that generates high-quality speech with low latency, while fully preserving the capabilities of the base LLM. Our approach achieves a significantly lower Word Error Rate compared to speech-enabled LLMs, while operating at comparable latency and UT-MOS score. By decoupling speech synthesis from LLM processing via a multi-queue token streaming system, LLMVoX supports seamless, infinite-length dialogues. Its plug-and-play design also facilitates extension to various tasks with different backbones. Furthermore, LLMVoX generalizes to new languages with only dataset adaptation, attaining a low Character Error Rate on an Arabic speech task. Additionally, we have integrated LLMVoX with a Vision-Language Model to create an omni-model with speech, text, and vision capabilities, without requiring additional multimodal training.
             </p>
         </div>
+
+
+        <div class="figure">
+            <img src="https://raw.githubusercontent.com/sambalshikhar/LLMVoX/main/assets/architecture.png" alt="LLMVoX Architecture">
+            <p class="figure-caption">Figure 2: Overview of the proposed architecture. Text from the LLM is tokenized via a ByT5-based Grapheme-to-Phoneme(G2P) model, producing byte-level phoneme embeddings. These are concatenated with the previous speech token's feature vector, L2-normalized, and fed into a decoder-only Transformer to generate the next token.</p>
+        </div>
         
         <div class="figure">
             <img src="https://raw.githubusercontent.com/sambalshikhar/LLMVoX/main/assets/main_graph.png" alt="LLMVoX Performance Graph">
             <p class="figure-caption">Figure 1: Speech quality (WER) vs latency (milliseconds) comparison of recent speech-enabled LLMs. Our LLMVoX is LLM-agnostic streaming TTS that generates high-quality speech (lower WER) comparable to XTTS while operating 10× faster.</p>
         </div>
         
-        <div class="figure">
-            <img src="https://raw.githubusercontent.com/sambalshikhar/LLMVoX/main/assets/architecture.png" alt="LLMVoX Architecture">
-            <p class="figure-caption">Figure 2: Overview of the proposed architecture. Text from the LLM is tokenized via a ByT5-based Grapheme-to-Phoneme(G2P) model, producing byte-level phoneme embeddings. These are concatenated with the previous speech token's feature vector, L2-normalized, and fed into a decoder-only Transformer to generate the next token.</p>
-        </div>
 
         <div class="button-container">
             <div class="coming-soon">
