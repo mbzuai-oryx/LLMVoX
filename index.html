@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLMVoX: Autoregressive Streaming Text-to-Speech Model for Any LLM</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        
+        .authors {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .author {
+            display: inline;
+            margin: 0 5px;
+        }
+        
+        .affiliation {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+        
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .button i {
+            margin-right: 8px;
+        }
+        
+        .button:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        .abstract {
+            margin-bottom: 40px;
+        }
+
+        .abstract-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .figure-caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>LLMVoX: Autoregressive Streaming Text-to-Speech Model for Any LLM</h1>
+        
+        <div class="authors">
+            <span class="author">Sambal Shikhar<sup>1</sup>,</span>
+            <span class="author">Mohammed Irfan Kurpath<sup>1</sup>,</span>
+            <span class="author">Sahal Shaji Mullappilly<sup>1</sup>,</span>
+            <span class="author">Jean Lahoud<sup>1</sup>,</span>
+            <span class="author">Fahad Khan<sup>1,2</sup>,</span>
+            <span class="author">Rao Muhammad Anwer<sup>1</sup>,</span>
+            <span class="author">Salman Khan<sup>1</sup>,</span>
+            <span class="author">Hisham Cholakkal<sup>1</sup></span>
+        </div>
+        
+        <div class="affiliation">
+            <div><sup>1</sup>Mohamed Bin Zayed University of Artificial Intelligence (MBZUAI), UAE</div>
+            <div><sup>2</sup>Linköping University, Sweden</div>
+        </div>
+        
+        <div class="button-container">
+            <a href="#" class="button">
+                <i class="fas fa-file-pdf"></i> arXiv
+            </a>
+            <a href="https://github.com/sambalshikhar/LLMVoX" class="button">
+                <i class="fab fa-github"></i> Code
+            </a>
+            <a href="#" class="button">
+                <i class="fas fa-microphone"></i> Hugging Face
+            </a>
+        </div>
+        
+        <div class="abstract">
+            <h2 class="abstract-title">Abstract</h2>
+            <p>
+                Recent advancements in speech-to-speech dialogue systems leverage LLMs for multimodal interactions, yet they remain hindered by fine-tuning requirements, high computational overhead, and text-speech misalignment. Existing speech-enabled LLMs often degrade conversational quality by modifying the LLM, thereby compromising its linguistic capabilities. In contrast, we propose LLMVoX, a lightweight 30M-parameter, LLM-agnostic, autoregressive streaming TTS system that generates high-quality speech with low latency, while fully preserving the capabilities of the base LLM. Our approach achieves a significantly lower Word Error Rate compared to speech-enabled LLMs, while operating at comparable latency and UT-MOS score. By decoupling speech synthesis from LLM processing via a multi-queue token streaming system, LLMVoX supports seamless, infinite-length dialogues. Its plug-and-play design also facilitates extension to various tasks with different backbones. Furthermore, LLMVoX generalizes to new languages with only dataset adaptation, attaining a low Character Error Rate on an Arabic speech task. Additionally, we have integrated LLMVoX with a Vision-Language Model to create an omni-model with speech, text, and vision capabilities, without requiring additional multimodal training.
+            </p>
+        </div>
+        
+        <div class="figure">
+            <img src="https://raw.githubusercontent.com/sambalshikhar/LLMVoX/main/assets/main_graph.png" alt="LLMVoX Performance Graph">
+            <p class="figure-caption">Figure 1: Speech quality (WER) vs latency (milliseconds) comparison of recent speech-enabled LLMs. Our LLMVoX is LLM-agnostic streaming TTS that generates high-quality speech (lower WER) comparable to XTTS while operating 10× faster.</p>
+        </div>
+        
+        <div class="figure">
+            <img src="https://raw.githubusercontent.com/sambalshikhar/LLMVoX/main/assets/architecture.png" alt="LLMVoX Architecture">
+            <p class="figure-caption">Figure 2: Overview of the proposed architecture. Text from the LLM is tokenized via a ByT5-based Grapheme-to-Phoneme(G2P) model, producing byte-level phoneme embeddings. These are concatenated with the previous speech token's feature vector, L2-normalized, and fed into a decoder-only Transformer to generate the next token.</p>
+        </div>
+
+        <div class="button-container">
+            <div class="coming-soon">
+                <i class="fas fa-code"></i> Code and Demo Coming Soon
+            </div>
+        </div>
+    </main>
+</body>
+</html>
