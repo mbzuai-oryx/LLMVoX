@@ -69,6 +69,7 @@
             text-decoration: none;
             border-radius: 4px;
             font-size: 0.9rem;
+            position: relative;
         }
         
         .button i {
@@ -78,6 +79,40 @@
         .button:hover {
             background-color: #555;
             color: white;
+        }
+
+        /* Tooltip style */
+        .tooltip-text {
+            visibility: hidden;
+            width: 140px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -70px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .button:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
         }
 
         .abstract {
@@ -124,7 +159,7 @@
         
         <div class="authors">
             <span class="author">Sambal Shikhar<sup>1</sup>,</span>
-            <span class="author">Mohammed Irfan Kurpath<sup>1</sup>,</span>
+            <span class="author">Mohammed Irfan K<sup>1</sup>,</span>
             <span class="author">Sahal Shaji Mullappilly<sup>1</sup>,</span>
             <span class="author">Jean Lahoud<sup>1</sup>,</span>
             <span class="author">Fahad Khan<sup>1,2</sup>,</span>
@@ -140,7 +175,7 @@
 
         <div class="button-container">
             <div class="coming-soon">
-                <i class="fas fa-code"></i> Code and Demo Coming Soon
+                <i class="fas fa-code"></i> Code, models & demo available on HF within 24h! ⭐ our GitHub!
             </div>
         </div>
         
@@ -150,9 +185,11 @@
             </a>
             <a href="https://github.com/mbzuai-oryx/LLMVoX" class="button">
                 <i class="fab fa-github"></i> Code
+                <span class="tooltip-text">To be released soon</span>
             </a>
             <a href="#" class="button">
                 <i class="fas fa-microphone"></i> Hugging Face
+                <span class="tooltip-text">To be released soon</span>
             </a>
         </div>
         
@@ -252,7 +289,7 @@
                 </table>
             </div>
             <p class="figure-caption" style="text-align: center; margin-top: 15px;">Table 1: Performance comparison of LLMVoX with state-of-the-art speech-enabled LLMs and cascaded systems. <br><strong>LLMVoX*</strong>: serving Llama 3.1 8B with SgLang and initial decoding chunk size = 10.</p>
-    
+        </div>
     </main>
 </body>
 </html>
