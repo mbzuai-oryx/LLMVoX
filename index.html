@@ -151,6 +151,65 @@
             font-size: 0.9rem;
             margin-top: 20px;
         }
+        
+        .video-container {
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+        
+        .video-item {
+            padding: 0 15px;
+            margin-bottom: 30px;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        
+        @media (max-width: 768px) {
+            .video-item {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+        
+        .video-card {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .video-title {
+            padding: 15px;
+            background-color: #f9f9f9;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .video-description {
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -200,6 +259,76 @@
             </p>
         </div>
 
+        <!-- Video Demos Section -->
+        <div class="video-container">
+            <h2 style="text-align: center; margin-bottom: 30px;">LLMVoX Demonstrations</h2>
+            
+            <div class="video-grid">
+                <!-- Video Demo 1 -->
+                <div class="video-item">
+                    <div class="video-card">
+                        <h3 class="video-title">English Text-to-Speech Demo</h3>
+                        <div class="video-wrapper">
+                            <video controls poster="">
+                                <source src="story_demo.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="video-description">
+                            LLMVoX streaming TTS demonstration with Llama 3.1 8B showing real-time text-to-speech conversion.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Demo 2 -->
+                <div class="video-item">
+                    <div class="video-card">
+                        <h3 class="video-title">Multilingual Capabilities</h3>
+                        <div class="video-wrapper">
+                            <video controls poster="">
+                                <source src="VLM_DEMO_2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="video-description">
+                            Demonstration of LLMVoX's multilingual capabilities, showing Arabic speech generation.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Demo 3 -->
+                <div class="video-item">
+                    <div class="video-card">
+                        <h3 class="video-title">Vision-Language-Speech Integration</h3>
+                        <div class="video-wrapper">
+                            <video controls poster="">
+                                <source src="voicechat_demo.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="video-description">
+                            Omni-model demonstration showing LLMVoX integrated with a Vision-Language Model.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Demo 4 -->
+                <div class="video-item">
+                    <div class="video-card">
+                        <h3 class="video-title">Low-Latency Comparison</h3>
+                        <div class="video-wrapper">
+                            <video controls poster="">
+                                <source src="story_demo.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="video-description">
+                            Side-by-side comparison of LLMVoX latency versus baseline models.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="figure">
             <img src="https://raw.githubusercontent.com/mbzuai-oryx/LLMVoX/gh-pages/arch_diagram.png" alt="LLMVoX Architecture">
@@ -291,5 +420,7 @@
             <p class="figure-caption" style="text-align: center; margin-top: 15px;">Table 1: Performance comparison of LLMVoX with state-of-the-art speech-enabled LLMs and cascaded systems. <br><strong>LLMVoX*</strong>: serving Llama 3.1 8B with SgLang and initial decoding chunk size = 10.</p>
         </div>
     </main>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
