@@ -257,6 +257,17 @@
             <p>
                 Recent advancements in speech-to-speech dialogue systems leverage LLMs for multimodal interactions, yet they remain hindered by fine-tuning requirements, high computational overhead, and text-speech misalignment. Existing speech-enabled LLMs often degrade conversational quality by modifying the LLM, thereby compromising its linguistic capabilities. In contrast, we propose LLMVoX, a lightweight 30M-parameter, LLM-agnostic, autoregressive streaming TTS system that generates high-quality speech with low latency, while fully preserving the capabilities of the base LLM. Our approach achieves a significantly lower Word Error Rate compared to speech-enabled LLMs, while operating at comparable latency and UT-MOS score. By decoupling speech synthesis from LLM processing via a multi-queue token streaming system, LLMVoX supports seamless, infinite-length dialogues. Its plug-and-play design also facilitates extension to various tasks with different backbones. Furthermore, LLMVoX generalizes to new languages with only dataset adaptation, attaining a low Character Error Rate on an Arabic speech task. Additionally, we have integrated LLMVoX with a Vision-Language Model to create an omni-model with speech, text, and vision capabilities, without requiring additional multimodal training.
             </p>
+            
+            <div style="background-color: #f8f9fa; border-left: 4px solid #4682B4; padding: 15px; margin: 20px 0; border-radius: 4px;">
+                <h3 style="margin-top: 0; color: #333;">Key Highlights</h3>
+                <ul style="margin-bottom: 0;">
+                    <li><strong>LLM-Agnostic Design:</strong> A lightweight 30M-parameter model that preserves the base LLM's capabilities without fine-tuning or architectural modifications</li>
+                    <li><strong>Superior Performance:</strong> Achieves a very low Word error rate (WER) with very low latency, as low as 300 ms and high UTMOS score </li>
+                    <li><strong>Multi-Queue Streaming:</strong> Enables continuous, low-latency speech generation for infinite-length dialogues without awkward pauses</li>
+                    <li><strong>Language Adaptability:</strong> Generalizes to other other languages, such as Arabic with simple dataset adaptation without explicit G2P conversion</li>
+                    <li><strong>Multimodal Integration:</strong> Seamlessly integrates with VLMs to create omni-models with speech, text, and vision capabilities</li>
+                </ul>
+            </div>
         </div>
 
         <!-- Video Demos Section -->
@@ -419,6 +430,68 @@
                 </table>
             </div>
             <p class="figure-caption" style="text-align: center; margin-top: 15px;">Table 1: Performance comparison of LLMVoX with state-of-the-art speech-enabled LLMs and cascaded systems with decoding chunk size = 40. <br><strong>LLMVoX*</strong>:Initial decoding chunk size = 10.</p>
+        </div>
+
+        <!-- Arabic TTS Performance Comparison Table -->
+        <div class="table-container" style="margin: 40px 0;">
+            <h2 style="text-align: center; margin-bottom: 20px;">Arabic Streaming TTS Comparison</h2>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; margin: 0 auto; max-width: 900px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 4px;">
+                    <thead>
+                        <tr style="background-color: #333; color: white;">
+                            <th style="padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd;">Model</th>
+                            <th style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">Streaming</th>
+                            <th style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">WER (↓)</th>
+                            <th style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">CER (↓)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">XTTS</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">No</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.062</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.017</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">ArTST</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">No</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.264</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.125</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">FastPitch Arabic Finetuned</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">No</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.493</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.153</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">Tacotron 2 Arabic Finetuned</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">No</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.663</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.268</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">Tacotron 2 Arabic Finetuned</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">No</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.663</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.268</td>
+                        </tr>
+                        <tr style="background-color: #f9f9f9;">
+                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">Seamless-M4t-Large</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">No</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.342</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.145</td>
+                        </tr>
+                        <tr style="background-color: #f8d7da; font-weight: bold;">
+                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">LLMVoX (Ours)</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">Yes</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.234</td>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.082</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="figure-caption" style="text-align: center; margin-top: 15px;">Table 3: Arabic TTS performance comparison. LLMVoX achieves competitive error rates in a streaming setup, operating at nearly 10x faster speed compared to state-of-the-art XTTS.</p>
         </div>
     </main>
     
