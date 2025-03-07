@@ -330,6 +330,23 @@
             </div>
         </div>
 
+        <div class="video-item">
+                    <div class="video-card">
+                        <h3 class="video-title">Arabic speech to speech conversation</h3>
+                        <div class="video-wrapper">
+                            <video controls poster="">
+                                <source src="arabicchat_demo.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="video-description">
+                           We demonstrate LLMVoX architecture adaptability to other languages such as Arabic by plugging it with Jais-13b arabic LLM model.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="figure">
             <img src="https://raw.githubusercontent.com/mbzuai-oryx/LLMVoX/gh-pages/arch_diagram.png" alt="LLMVoX Architecture">
             <p class="figure-caption">Figure 2: Overview of the proposed architecture. Text from the LLM is tokenized via a ByT5-based Grapheme-to-Phoneme(G2P) model, producing byte-level phoneme embeddings. These are concatenated with the previous speech token's feature vector, L2-normalized, and fed into a decoder-only Transformer to generate the next token.</p>
