@@ -152,6 +152,15 @@ def save_checkpoint(config, model, optimizer, iter_num, model_args):
         backup_path = os.path.join(config['out_dir'], f'ckpt_{iter_num}.pt')
         print(f"Saving backup checkpoint to {backup_path}")
         torch.save(checkpoint, backup_path)
+        
+        # Keep only the latest 3 checkpoints, remove older ones
+        checkpoint_files = sorted(glob(os.path.join(config['out_dir'], 'ckpt_*.pt')), 
+                                  key=os.path.getctime, reverse=True)  # Sort by creation time
+        if len(checkpoint_files) > 3:
+            old_checkpoints = checkpoint_files[3:]
+            for ckpt in old_checkpoints:
+                print(f"Removing old checkpoint: {ckpt}")
+                os.remove(ckpt)
 
 
 def smart_tokenizer_and_embedding_resize(
