@@ -13,8 +13,8 @@ import tempfile
 import argparse
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QPushButton, QVBoxLayout, 
                             QWidget, QLabel, QTextEdit, QFrame, QSlider, QHBoxLayout,
-                            QTabWidget, QLineEdit, QTimer)
-from PyQt5.QtCore import Qt, pyqtSignal, QThread
+                            QTabWidget, QLineEdit)
+from PyQt5.QtCore import Qt, pyqtSignal, QThread, QTimer
 from PyQt5.QtGui import QFont, QImage, QPixmap
 from pyaudio import PyAudio, paFloat32
 
