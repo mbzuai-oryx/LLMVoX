@@ -57,7 +57,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
         
         .button {
@@ -210,6 +210,37 @@
             font-size: 0.9rem;
             color: #666;
         }
+        
+        .acl-acceptance {
+            text-align: center;
+            margin: 20px auto 40px;
+            max-width: 500px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #d23939;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .acl-acceptance i {
+            margin-right: 8px;
+            margin-left: 8px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(255, 154, 158, 0.5);
+            }
+            100% {
+                box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
+            }
+        }
     </style>
 </head>
 <body>
@@ -242,6 +273,10 @@
             <a href="https://huggingface.co/MBZUAI/LLMVoX" class="button">
                 <i class="fas fa-microphone"></i> Hugging Face
             </a>
+        </div>
+        
+        <div class="acl-acceptance">
+            <i class="fas fa-award"></i> Accepted at ACL 2025 Findings <i class="fas fa-fire"></i>
         </div>
 
         <div class="main-video-container" style="margin: 30px 0 50px 0; text-align: center;">
@@ -483,40 +518,4 @@
                         <tr>
                             <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">FastPitch Arabic Finetuned</td>
                             <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">No</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.493</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.153</td>
-                        </tr>
-                        <tr style="background-color: #f9f9f9;">
-                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">Tacotron 2 Arabic Finetuned</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">No</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.663</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.268</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">Tacotron 2 Arabic Finetuned</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">No</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.663</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.268</td>
-                        </tr>
-                        <tr style="background-color: #f9f9f9;">
-                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">Seamless-M4t-Large</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">No</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.342</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.145</td>
-                        </tr>
-                        <tr style="background-color: #f8d7da; font-weight: bold;">
-                            <td style="padding: 12px 15px; border-bottom: 1px solid #ddd;">LLMVoX (Ours)</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">Yes</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.234</td>
-                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.082</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="figure-caption" style="text-align: center; margin-top: 15px;">Table 3: Arabic TTS performance comparison. LLMVoX achieves competitive error rates in a streaming setup, operating at nearly 10x faster speed compared to state-of-the-art XTTS.</p>
-        </div>
-    </main>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+                            <td style="padding: 12px 15px; text-align: center; border-bottom: 1px solid #ddd;">0.
