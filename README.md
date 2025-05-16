@@ -1,4 +1,4 @@
-### Accepted at **ACL 2025 Findings 🔥**
+### Accepted at **ACL 2025 Findings 🏅**
 ## LLMVoX: Autoregressive Streaming Text-to-Speech Model for Any LLM
 <div>
 <a href="https://mbzuai-oryx.github.io/LLMVoX/"><img src="https://img.shields.io/badge/Project-Page-blue" alt="Project Page"></a>
