@@ -447,8 +447,7 @@ async def audio_generator_async(audio_byte_queue_1, audio_byte_queue_2):
             
             if audio_bytes == 'end':
                 print("End of generation")
-                yield None
-                continue
+                break
                 
             if audio_bytes in [0, 1]:
                 # Switch active queue
